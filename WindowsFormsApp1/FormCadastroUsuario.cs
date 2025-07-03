@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         private SqlDataAdapter dataAdapterUsuarios = new SqlDataAdapter();
         private DataTable dataTableUsuarios = new DataTable();
 
-        string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BD_Biblioteca;Persist Security Info=True;User ID=sa;Password=12345678";
+        private string connectionString = "Server=localhost\\SQLEXPRESS;Database=BibliotecaDB;Trusted_Connection=True;TrustServerCertificate=True;";
         public FormCadastroUsuario()
         {
             InitializeComponent();
@@ -33,6 +33,9 @@ namespace WindowsFormsApp1
             string endereco = txtEndereco.Text;
             string telefone = txtTelefone.Text;
 
+            // AQUI ESTÁ A CORREÇÃO! Definimos um valor padrão para o tipo.
+            string tipo = "Usuario";
+
             // Inserir os valores no banco de dados
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -40,35 +43,30 @@ namespace WindowsFormsApp1
                 {
                     connection.Open();
 
-                    // Comando SQL para inserir os dados na tabela Usuarios
-                    string query = "INSERT INTO Usuarios (Nome, Senha, Endereco, Telefone) " +
-                        "VALUES (@Nome, @Senha, @Endereco, @Telefone)";
+                    // AQUI ESTÁ A CORREÇÃO NO SQL! Adicionamos a coluna e o parâmetro 'Tipo'.
+                    string query = "INSERT INTO Usuarios (Nome, Senha, Endereco, Telefone, Tipo) " +
+                                   "VALUES (@Nome, @Senha, @Endereco, @Telefone, @Tipo)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Nome", nome);
                     command.Parameters.AddWithValue("@Senha", senha);
                     command.Parameters.AddWithValue("@Endereco", endereco);
                     command.Parameters.AddWithValue("@Telefone", telefone);
+                    command.Parameters.AddWithValue("@Tipo", tipo); // E AQUI ADICIONAMOS O PARÂMETRO!
 
-                    // Executar o comando SQL
                     command.ExecuteNonQuery();
 
-                    // Limpar os campos de entrada de texto
                     txtNome.Clear();
                     txtSenha.Clear();
                     txtEndereco.Clear();
                     txtTelefone.Clear();
 
-                    // Atualizar o DataTable com os novos dados
+                    MessageBox.Show("Usuário cadastrado com sucesso!");
                     LoadUsuariosData();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ocorreu um erro ao salvar os dados: " + ex.Message);
-                }
-                finally
-                {
-                    connection.Close();
                 }
             }
         }

@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
-            connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BD_Biblioteca;Persist Security Info=True;User ID=sa;Password=12345678";
+            connectionString = "Server=localhost\\SQLEXPRESS;Database=BibliotecaDB;Trusted_Connection=True;TrustServerCertificate=True;";
             connection = new SqlConnection(connectionString);
 
             usuarioDAO = new UsuarioDAO(connectionString); // Instanciação da classe UsuarioDAO

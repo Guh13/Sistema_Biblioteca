@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class FormAcervo : Form
     {
-        private string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BD_Biblioteca;Persist Security Info=True;User ID=sa;Password=12345678";
+        private string connectionString = "Server=localhost\\SQLEXPRESS;Database=BibliotecaDB;Trusted_Connection=True;TrustServerCertificate=True;";
         public FormAcervo()
         {
             InitializeComponent();

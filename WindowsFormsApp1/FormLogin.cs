@@ -13,8 +13,8 @@ namespace WindowsFormsApp1
 {
     public partial class FormLogin : Form
     {
-        string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BD_Biblioteca;Persist Security Info=True;User ID=sa;Password=12345678";
-       
+        string connectionString = "Server=localhost\\SQLEXPRESS;Database=BibliotecaDB;Trusted_Connection=True;TrustServerCertificate=True;";
+
 
         public FormLogin()
         {

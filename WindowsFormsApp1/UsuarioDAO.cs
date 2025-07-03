@@ -13,12 +13,14 @@ public class UsuarioDAO
     {
         private SqlConnection connection;
 
-        public UsuarioDAO(string connectionString)
-        {
-            connection = new SqlConnection(connectionString);
-        }
+    public UsuarioDAO(string connectionString)
+    {
+        // Ignora a string de conexão que veio do formulário e usa a nossa, que sabemos que está 100% correta.
+        string stringDeConexaoCorreta = "Server=localhost\\SQLEXPRESS;Database=BibliotecaDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        connection = new SqlConnection(stringDeConexaoCorreta);
+    }
 
-        public int ObterUsuarioId(string nomeUsuario)
+    public int ObterUsuarioId(string nomeUsuario)
         {
                 int usuarioId = -1;
 

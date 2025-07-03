@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class FormRegistroDeDevolucoes : Form
     {
-        private const string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=BD_Biblioteca;Persist Security Info=True;User ID=sa;Password=12345678";
+        private const string connectionString = "Server=localhost\\SQLEXPRESS;Database=BibliotecaDB;Trusted_Connection=True;TrustServerCertificate=True;";
         public FormRegistroDeDevolucoes()
         {
             InitializeComponent();
