@@ -35,15 +35,20 @@ O sistema conta com um robusto conjunto de funcionalidades, incluindo:
 ## 📸 Telas do Sistema
 
 **Tela de Login e Registro de Usuário**
-![Tela de Login](./imagens/tela-login.png)
-![Tela de Registro](./imagens/tela-registro.png)
+![Tela de Login]
+(./imagens/tela-login.png)
+![Tela de Registro]
+(./imagens/tela-registro.png)
 
 **Gerenciamento de Livros**
-![Acervo de Livros com dados](./imagens/tela-acervo.png)
+![Acervo de Livros com dados]
+(./imagens/tela-acervo.png)
 
 **Operações de Empréstimo e Devolução**
-![Tela de Empréstimo](./imagens/tela-emprestimo.png)
-![Tela de Devoluções](./imagens/tela-devolucoes.png)
+![Tela de Empréstimo]
+(./imagens/tela-emprestimo.png)
+![Tela de Devoluções]
+(./imagens/tela-devolucoes.png)
 
 
 
